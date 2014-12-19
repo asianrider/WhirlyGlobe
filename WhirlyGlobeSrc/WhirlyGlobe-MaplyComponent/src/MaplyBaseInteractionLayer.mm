@@ -763,6 +763,9 @@ typedef std::set<ThreadChanges> ThreadChangeSet;
     NSMutableArray *wgLabels = [NSMutableArray array];
     for (MaplyLabel *label in labels)
     {
+        if (!label.text) {
+            continue;
+        }
         WhirlyKitSingleLabel *wgLabel = [[WhirlyKitSingleLabel alloc] init];
         NSMutableDictionary *desc = [NSMutableDictionary dictionary];
         wgLabel.loc = GeoCoord(label.loc.x,label.loc.y);
